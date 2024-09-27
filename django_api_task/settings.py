@@ -123,4 +123,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # External API URL
-POSTS_API = 'https://jsonplaceholder.typicode.com/posts'
+API_URL = 'https://jsonplaceholder.typicode.com'
