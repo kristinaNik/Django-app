@@ -1,7 +1,7 @@
 from django.urls import path
-from . import views
+from .views import post_list_view
 
 #URL conf module
 urlpatterns = [
-    path('hello/', views.say_hello)
+    path('', post_list_view, name='post_list')
 ]

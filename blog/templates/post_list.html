@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post List</title>
+</head>
+<body>
+    <h1>All Posts</h1>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="#">{{ post.title }}</a>
+                <p>{{ post.body|slice:": 50" }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
