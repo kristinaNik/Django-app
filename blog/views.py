@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 from .services.blog_service import BlogService
 
@@ -9,5 +10,10 @@ def post_list(request):
 
 def post_detail(request, post_id):
     post = blog_service.get_post_by_id(post_id)
-    comments = blog_service.get_comments_for_post(post_id) if post else []
+    
+    if post is None:
+        raise Http404("Post not found")
+    
+    comments = blog_service.get_comments_for_post(post_id) 
+   
     return render(request, 'post_detail.html', {'post': post, 'comments': comments})
