@@ -1,11 +1,11 @@
 import requests
-from django.conf import settings
+from decouple import config
 
 class BlogService:
     @classmethod
-    def get_all_posts(cls):
+    def get_all_posts(service_class):
         try:
-            response = requests.get(f"{settings.API_URL}/posts")
+            response = requests.get(f"{config('API_URL')}/posts")
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
@@ -13,9 +13,9 @@ class BlogService:
             return []
 
     @classmethod
-    def get_post_by_id(cls, post_id):
+    def get_post_by_id(service_class, post_id):
         try:
-            response = requests.get(f"{settings.API_URL}/posts/{post_id}")
+            response = requests.get(f"{config('API_URL')}/posts/{post_id}")
             response.raise_for_status()
             return response.json() 
         except requests.exceptions.RequestException as e:
@@ -23,9 +23,9 @@ class BlogService:
             return None
 
     @classmethod
-    def get_comments_for_post(cls, post_id):
+    def get_comments_for_post(service_class, post_id):
         try:
-            response = requests.get(f"{settings.API_URL}/posts/{post_id}/comments")
+            response = requests.get(f"{config('API_URL')}/posts/{post_id}/comments")
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as req_err:

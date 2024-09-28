@@ -15,3 +15,5 @@ __pycache__/
 *.tgz
 *.zip
 
+# Environment Variables
+.env
