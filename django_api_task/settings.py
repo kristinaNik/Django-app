@@ -125,3 +125,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # External API URL
 API_URL = config('API_URL')
+STATIC_URL = '/static/'

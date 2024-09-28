@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ post.title }}</title>
-</head>
-<body>
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.body }}</p>
+{% extends "base.html" %}
 
-    <h2>Comments</h2>
-    <ul>
-        {% for comment in comments %}
-            <li>
-                <p><strong>{{ comment.name }}</strong> ({{ comment.email }})</p>
-                <p>{{ comment.body }}</p>
-            </li>
-        {% empty %}
-            <p>No comments found for this post.</p>
-        {% endfor %}
-    </ul>
+{% block title %}{{ post.title }}{% endblock %}
 
-    <a href="{% url 'post_list' %}">Back to All Posts</a>
-</body>
-</html>
+{% block content %}
+<h1>{{ post.title }}</h1>
+<p>{{ post.body }}</p>
+
+<h2 class="mt-4">Comments</h2>
+<div class="list-group">
+    {% for comment in comments %}
+        <div class="list-group-item">
+            <h5>{{ comment.name }} <small>({{ comment.email }})</small></h5>
+            <p>{{ comment.body }}</p>
+        </div>
+    {% empty %}
+        <div class="alert alert-warning" role="alert">
+            No comments found for this post.
+        </div>
+    {% endfor %}
+</div>
+
+<a href="{% url 'post_list' %}" class="btn btn-secondary mt-4">Back to All Posts</a>
+{% endblock %}
