@@ -1,12 +1,13 @@
-from .services import BlogService
+from .services.blog_service import BlogService
 
 class BlogController:
-    @staticmethod
-    def get_all_posts():
-        return BlogService.get_all_posts()
+    def __init__(self, service=None):
+        self.service = service or BlogService()
 
-    @staticmethod
-    def get_post_details(post_id):
-        post = BlogService.get_post_by_id(post_id)
-        comments = BlogService.get_comments_for_post(post_id)
+    def get_all_posts(self):
+        return self.service.get_all_posts()
+
+    def get_post_details(self, post_id):
+        post = self.service.get_post_by_id(post_id)
+        comments = self.service.get_comments_for_post(post_id) if post else []
         return post, comments
