@@ -11,10 +11,6 @@ h1, h2 {
     color: #343a40; 
 }
 
-.card {
-    margin-bottom: 20px; 
-}
-
 .list-group-item {
     border: none;
     background-color: #ffffff;
@@ -23,3 +19,13 @@ h1, h2 {
 .btn-secondary {
     margin-top: 20px;
 }
+
+.card { 
+    height: 100%;
+}
+
+
+.card-body {
+    flex: 1; 
+}
+
