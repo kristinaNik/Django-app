@@ -3,11 +3,11 @@ from rest_framework import serializers
 class PostSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     title = serializers.CharField(max_length=100)
-    content = serializers.CharField(source='body')
+    body = serializers.CharField(max_length=100)
 
 class PostCommentSerializer(serializers.Serializer):
-    postId = serializers.IntegerField()
     id = serializers.IntegerField()
-    name = serializers.CharField(max_length=50)
+    postId = serializers.IntegerField()
+    author_name = serializers.CharField(source='name')
     email = serializers.EmailField(max_length=50)
-    content = serializers.CharField(source='body')
+    body = serializers.CharField(max_length=100)
