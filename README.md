@@ -11,9 +11,8 @@ Make sure you have the following installed:
 
 You can access the frontend of the application at:
 
-- **Post List**: [{hostname}/posts/]({hostname}/posts/)
+- **Post List**: [{hostname}]({hostname})/ 
 - **Post Details**: [{hostname}/posts/{id}]({hostname}/posts/{id})
-- **Post Comments**: [{hostname}/posts/{id}/comments]({hostname}/posts/{id}/comments)
 
 This page displays all blog posts along with their details.
 

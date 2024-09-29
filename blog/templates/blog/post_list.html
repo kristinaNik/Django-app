@@ -1,20 +1,12 @@
 {% extends "blog/base.html" %}
 
 {% block title %}All Posts{% endblock %}
-
+{% load static %}
 {% block content %}
-<div class="row">
+<div id="posts-container" class="row">
     <h1 class="mb-4 text-center">All Posts</h1>
-    {% for post in posts %}
-        <div class="col-md-4 mb-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Title{{ post.title }}</h5>
-                    <p class="card-text">{{ post.body|slice:": 100" }}...</p>
-                    <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
 </div>
+
+<script src="{% static 'blog/post_list.js' %}"></script>
 {% endblock %}
+

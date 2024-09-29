@@ -1,24 +1,15 @@
 {% extends "blog/base.html" %}
 
 {% block title %}{{ post.title }}{% endblock %}
-
+{% load static %}
 {% block content %}
-<h1>{{ post.title }}</h1>
-<p>{{ post.body }}</p>
-
-<h2 class="mt-4">Comments</h2>
-<div class="list-group">
-    {% for comment in comments %}
-        <div class="list-group-item">
-            <h5>{{ comment.name }} <small>({{ comment.email }})</small></h5>
-            <p>{{ comment.body }}</p>
-        </div>
-    {% empty %}
-        <div class="alert alert-warning" role="alert">
-            No comments found for this post.
-        </div>
-    {% endfor %}
+<div id="post-id" data-post-id="{{post_id}}"></div>
+<div id="post-container">
 </div>
 
-<a href="{% url 'post_list' %}" class="btn btn-secondary mt-4">Back to All Posts</a>
+<div id="comments-container" class="mt-4">
+    <h2>Comments</h2>
+</div>
+
+<script src="{% static 'blog/post_details.js' %}"></script>
 {% endblock %}
