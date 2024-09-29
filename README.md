@@ -36,6 +36,13 @@ The following API endpoints are available for retrieving blog posts and comments
   - **Method**: GET
   - **Description**: Retrieves comments related to a specific post by its ID.
 
+Note:
+You can use `?format=json ` to format the api response to a json
+- Example
+```bash
+{hostname}/api/posts/1/comments/?format=json
+```
+
 ## Setup Instructions
 
 1. Clone the repository
