@@ -1,8 +1,5 @@
 from django.http import Http404
 from django.shortcuts import render
-from .services.blog_service import BlogService
-
-blog_service = BlogService()
 
 def post_list(request):
     return render(request, 'blog/post_list.html')
