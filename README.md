@@ -46,13 +46,19 @@ You can use `?format=json ` to format the api response to a json
 
 1. Clone the repository
 ```bash
-    git clone git@github.com:kristinaNik/Django-app.git
+git clone git@github.com:kristinaNik/Django-app.git
 ```
 2. Copy .env.example and create your local .env file
 3. Install the required packages
+- If you’re using pip:
 ```bash
 pip install -r requirements.txt
 ```
+- If you’re using pipenv
+```bash
+pipenv install
+```
+
 
 ## Run the the Django server
 ```bash
