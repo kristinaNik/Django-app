@@ -1,9 +1,13 @@
 from rest_framework import serializers
-from blog.models import Post
 
-class PostSerializer(serializers.ModelSerializer):
+class PostSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    title = serializers.CharField(max_length=100)
     content = serializers.CharField(source='body')
 
-    class Meta:
-        model = Post
-        fields = ['id', 'title', 'content', 'created_at']
+class PostCommentSerializer(serializers.Serializer):
+    postId = serializers.IntegerField()
+    id = serializers.IntegerField()
+    name = serializers.CharField(max_length=50)
+    email = serializers.EmailField(max_length=50)
+    content = serializers.CharField(source='body')
