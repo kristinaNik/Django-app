@@ -50,13 +50,8 @@ git clone git@github.com:kristinaNik/Django-app.git
 ```
 2. Copy .env.example and create your local .env file
 3. Install the required packages
-- If you’re using pip:
 ```bash
 pip install -r requirements.txt
-```
-- If you’re using pipenv
-```bash
-pipenv install
 ```
 
 
