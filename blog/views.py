@@ -6,6 +6,10 @@ blog_service = BlogService()
 
 def post_list(request):
     posts = blog_service.get_all_posts()
+
+    if posts is None:
+        posts = []
+
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, post_id):
@@ -15,5 +19,8 @@ def post_detail(request, post_id):
         raise Http404("Post not found")
     
     comments = blog_service.get_comments_for_post(post_id) 
+
+    if comments is None:
+        comments = []
    
     return render(request, 'blog/post_detail.html', {'post': post, 'comments': comments})
